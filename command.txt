@@ -2,3 +2,8 @@ django-admin startproject Project_name
 python manage.py startapp App_name
 python manage.py makemigrations
 python manage.py migrate
+
+#To set Jupyter to use local virtualenv environment run:
+ipython kernel install --user --name=venv
+# start Jupyter
+jupyter notebook
