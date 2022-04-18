@@ -1,0 +1,4 @@
+django-admin startproject Project_name
+python manage.py startapp App_name
+python manage.py makemigrations
+python manage.py migrate
