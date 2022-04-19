@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',  # add django rest framework
     'ml_function',
-    'apps.endpoints' # apps
+    # apps
+    'apps.endpoints',
+    'apps.ml'
 
 ]
 
