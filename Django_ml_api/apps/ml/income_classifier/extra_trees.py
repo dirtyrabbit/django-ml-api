@@ -1,13 +1,13 @@
 import joblib
 import pandas as pd
 import os.path
-from django.conf import settings
-class RandomForestClassifier:
 
+from django.conf import settings
+class ExtraTreesClassifier:
     def __init__(self):
         self.values_fill_missing =  joblib.load(os.path.join(settings.BASE_DIR, 'research/train_mode.joblib'))
         self.encoders = joblib.load(os.path.join(settings.BASE_DIR, 'research/encoders.joblib'))
-        self.model = joblib.load(os.path.join(settings.BASE_DIR, 'research/random_forest.joblib'))
+        self.model = joblib.load(os.path.join(settings.BASE_DIR, 'research/extra_trees.joblib'))
 
     def preprocessing(self, input_data):
         # JSON to pandas DataFrame
@@ -48,11 +48,3 @@ class RandomForestClassifier:
             return {"status": "Error", "message": str(e)}
 
         return prediction
-
-'''
-__init__ - the constructor which loads preprocessing objects and Random Forest object (created with Jupyter notebook)
-preprocessing - the method which takes as input JSON data, converts it to Pandas DataFrame and apply pre-processing
-predict - the method that calls ML for computing predictions on prepared data,
-postprocessing - the method that applies post-processing on prediction values,
-compute_prediction - the method that combines: preprocessing, predict and postprocessing and returns JSON object with the response.
-'''
